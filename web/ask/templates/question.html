@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% block title %}
-    {{ block.super }} - главная
+    Вопрос {{ question.title }}
 {% endblock %}
 {% block content %}
-    {% for obj in post_list %}
-        <div class="question">
-            <a href="{{obj.build_url}}">{{obj}}</a>
-            {{obj.created_date|date:"d.m.Y"}}
+    Вопрос: {{question.text}}<br />
+    Рейтинг: {{question.rating}}<br />
+    Ответы:
+    {% for item in answers %}
+        <div class="answer-item">
+            {{item.text}}
         </div>
     {% endfor %}
 {% endblock %}

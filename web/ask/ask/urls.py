@@ -17,11 +17,11 @@ from django.conf.urls import include, url
 import qa.views
 
 urlpatterns = [
-    url('^$', qa.views.test, name='index'),
+    url('^$', qa.views.index, name='index'),
     url(r'^login/', qa.views.test, name='login'),
     url(r'^signup/', qa.views.test, name='signup'),
-    url(r'^question/(?P<question_id>[0-9]+)', qa.views.test, name='question'),
+    url(r'^question/(?P<question_id>[0-9]+)', qa.views.question, name='question'),
     url(r'^ask/', qa.views.test, name='ask'),
-    url(r'^popular/', qa.views.test, name='popular'),
+    url(r'^popular/', qa.views.popular, name='popular'),
     url(r'^new/', qa.views.test, name='new')
 ]
