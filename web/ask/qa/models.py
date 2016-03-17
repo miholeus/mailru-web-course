@@ -1,9 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User as BaseUser
+from django.contrib.auth.models import User
 
-class User(BaseUser):
-    class Meta:
-        db_table = 'users'
+class User(models.Model):
+    user = models.OneToOneField(User, related_name='ask_user')
+    avatar = models.ImageField(upload_to='users_avatars')
+    rating = models.IntegerField()
 
 class Question(models.Model):
     title=models.CharField(max_length=255)
